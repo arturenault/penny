@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :posts, dependent: :destroy
   before_create :create_remember_token
   VALID_USERNAME_REGEX = /\A[a-zA-Z0-9_]+\z/i
   validates :username, presence: true,

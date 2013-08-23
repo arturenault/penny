@@ -10,4 +10,9 @@ FactoryGirl.define do
       username "admin_user"
     end
   end
+
+  factory :post do
+    content "Lorem ipsum"
+    user
+  end
 end
