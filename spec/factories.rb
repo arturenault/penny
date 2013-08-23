@@ -1,7 +1,9 @@
 FactoryGirl.define do
+  sequence(:username) { |n| "Person#{n}" }
+  
   factory :user do
-    username    "john_lennon"
-    password "walrus"
-    password_confirmation "walrus"
+    username "example_user"
+    password "foobar"
+    password_confirmation "foobar"
   end
 end
