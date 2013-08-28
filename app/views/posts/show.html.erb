@@ -1,0 +1,17 @@
+<% provide(:title, @post.title) %> <h1> <%= @post.title %> </h1>
+<h2>by <%= link_to @post.user.username, @post.user%></h4>
+<div class="hero-unit">
+	<%= @post.content %>
+</div>
+<div>
+	<h3><%= pluralize(@post.thoughts.count, 'thought') %></h3>
+	<% if @post.thoughts.any? %>
+	<ul class="thoughts">
+		<%= render @post.thoughts %>
+	</ul>
+	<% end %>
+</div>
+<section>
+	<% if signed_in? and !current_users_post? %>
+	<%= render 'shared/thought_form' %>
+	<% end %>
